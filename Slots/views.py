@@ -36,7 +36,7 @@ def bookslots(request,sport):
 
                 return render(request,'Slots/bookslot.html',{'book_form':bookform})
     else:
-        return redirect('sportpage')
+        return redirect('user_login')
 
 
 def slotlist(request):
