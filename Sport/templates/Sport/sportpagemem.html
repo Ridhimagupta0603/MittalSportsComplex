@@ -3,11 +3,48 @@
 
 
 
+<div style="margin:20px">
+<div class="jumbotron container" >
+    <h1>Sport </h1>
+    <ol>
+    {%for Sport in sport%}
+    
+        
+    <li>  <a href="/Sport/{{Sport.name}}/">{{Sport.name}}</a>   
+     <button><a href="/Slots/{{Sport.name}}/">Book slot</a> </button>
+    
+    </li>
+    <br><br>
+    
+        
 
+
+    {%endfor%}
+</ol>
+    
+
+</div>
 <div class="jumbotron container">
-    <h1> meme</h1>
+    <h1>Court</h1>
+    <ol>
+    {%for Court in court%}
+    
+        
+    <li>  Court Name: {{Court.court_name}}</li>  
+     Capacity: {{Court.capacity}}
 
-</div>>
+    
+   
+        
+
+
+    {%endfor%}
+    </ol>
+
+</div>
+
+</div>
+
 
 
 

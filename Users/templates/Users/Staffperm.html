@@ -1,10 +1,11 @@
 {%extends 'Users/index.html'%}
 {%block content%}
+<div style="width:fit-content;padding:100px;margin:50px;color:white">
 <form method='post' action=''>
-    {% csrf_token %}
+    {% csrf_token %}<ol>
     {% for user in User%}
     <div class="form-group">
-      <label for="question">{{user.username}}</label>
+      <li><label for="question">{{user.username}}</label>
     </div>
     <div class="form-check">
         <div class="form-check">
@@ -24,10 +25,14 @@
         <br>
     </div>    
     {% endfor %}
+</li>
+    </ol>
     <input id='timer' type='hidden' name="timer" value="">
     <br>
     <button type="submit" class="btn btn-primary">Submit</button>
+    
+    
   </form>
 
-
+</div>
 {%endblock%}

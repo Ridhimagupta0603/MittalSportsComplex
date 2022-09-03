@@ -1,9 +1,19 @@
 {%extends 'Users/index.html'%}
 {%block content%}
-
+<div style="border:2px solid white;padding:40px;margin:100px;color:white">
+    <ol>
 {% for slot in slots %}
-<a href="/Slots/Cancel/{{slot.id}}/">Cancel {{slot}}</a>
+<li>
+    <h5>Sport: {{slot.sport}} </h5>
+    <h5>Court: {{slot.court}} </h5>
+    <h5>Booked_by- {{slot.booked_by.username}} </h5>
+    <h5>Timeslot {{slot.slot.fromtime}} to {{slot.slot.totime}} </h5>
+    <h5>Date booked {{slot.date}}</h5>
 
+<button><a href="/Slots/Cancel/{{slot.id}}/">Cancel</a></button>
+</li>
 {%endfor%}
+</ol>
+</div>
 
 {%endblock%}

@@ -3,52 +3,74 @@
 
 
 
-
-
-
-
-<div class="jumbotron container">
+<div >
+    <ul style="margin: 0;
+    padding: 0;
+    width: 200px;
+    
+    position:fixed;
+    height: 100%;
+    overflow: auto;">
+<li><a href="{% url 'AddSport'%}" style="display: block;
+    color: white;
+    padding: 16px;
+    text-decoration: none;" >AddSport</a></li>
+    <li><a href="{% url 'AddCourt'%}" style="display: block;
+        color: white;
+        padding: 16px;
+        text-decoration: none;">Add Court</a></li>
+        <li><a href="{% url 'AddSlots'%}" style="display: block;
+            color: white;
+            padding: 16px;
+            text-decoration: none;">Add Time Slots</a></li>
+            <li><a href="{% url 'slotlist'%}" style="display: block;
+                color: white;
+                padding: 16px;
+                text-decoration: none;">View/Cancel Slots</a></li>
+</ul>
+</div>
+<div style="margin:20px">
+<div class="jumbotron container" >
     <h1>Sport </h1>
-    {%for Sport in sport%}
     <ol>
+    {%for Sport in sport%}
+    
         
-    <li>  <a href="/Sport/{{Sport.name}}/">{{Sport.name}}</a> </li>  
-    <li>  <a href="/Slots/{{Sport.name}}/">Book slot</a> </li>  
+    <li>  <a href="/Sport/{{Sport.name}}/">{{Sport.name}}</a>   
+     <button><a href="/Slots/{{Sport.name}}/">Book slot</a> </button>
     
+    </li>
+    <br><br>
     
-    </ol>
         
 
 
     {%endfor%}
+</ol>
     
 
 </div>
 <div class="jumbotron container">
     <h1>Court</h1>
-    {%for Court in court%}
     <ol>
+    {%for Court in court%}
+    
         
-    <li>   {{Court.court_name}}</li>  
-    <li>   {{Court.capacity}}</li>  
+    <li>  Court Name: {{Court.court_name}}</li>  
+     Capacity: {{Court.capacity}}
 
     
-    </ol>
+   
         
 
 
     {%endfor%}
-    
+    </ol>
 
 </div>
 
+</div>
 
-
-
-<a href="{% url 'AddSport'%}">AddSport</a>
-<a href="{% url 'AddCourt'%}">AddCourt</a>
-<a href="{% url 'AddSlots'%}">AddTime Slots</a>
-<a href="{% url 'slotlist'%}">see Slots</a>
 
 
 
