@@ -9,31 +9,32 @@ from datetime import datetime, date
 
 # Create your views here.
 
-@login_required
-def bookslots(request,sport):
-    def numslots(user):
-        return Bookslot.objects.filter(booked_by=user).count()
-        
 
-    
-    if numslots(request.user)<3:
-        booksport=Sport.objects.get(name=sport)
-        slot=Bookslot()
-        if request.method=='POST':
-            bookform=Bookslotform(request.POST)
-            if bookform.is_valid():
-                slot.booked_by=request.user
-                slot.sport=booksport
-                slot.court=Court.objects.get(id=request.POST['court'])
-                slot.slot=Timeslot.objects.get(id=request.POST['slot'])
-                slot.date=request.POST['date']
-                slot.save()
-                print('valid')
-                return redirect('sportpage')
-        else:
-            bookform=Bookslotform()
-            
-            return render(request,'Slots/bookslot.html',{'book_form':bookform})
+def bookslots(request,sport):
+    if request.user.is_authenticated:
+        def numslots(user):
+            return Bookslot.objects.filter(booked_by=user).count()
+
+
+
+        if numslots(request.user)<3:
+            booksport=Sport.objects.get(name=sport)
+            slot=Bookslot()
+            if request.method=='POST':
+                bookform=Bookslotform(request.POST)
+                if bookform.is_valid():
+                    slot.booked_by=request.user
+                    slot.sport=booksport
+                    slot.court=Court.objects.get(id=request.POST['court'])
+                    slot.slot=Timeslot.objects.get(id=request.POST['slot'])
+                    slot.date=request.POST['date']
+                    slot.save()
+                    print('valid')
+                    return redirect('sportpage')
+            else:
+                bookform=Bookslotform()
+
+                return render(request,'Slots/bookslot.html',{'book_form':bookform})
     else:
         return redirect('sportpage')
 
