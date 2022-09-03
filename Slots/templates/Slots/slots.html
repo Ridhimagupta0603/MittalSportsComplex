@@ -1,0 +1,9 @@
+{%extends 'Users/index.html'%}
+{%block content%}
+
+{% for slot in slots %}
+<a href="/Slots/Cancel/{{slot.id}}/">Cancel {{slot}}</a>
+
+{%endfor%}
+
+{%endblock%}

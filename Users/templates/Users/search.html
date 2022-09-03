@@ -1,0 +1,10 @@
+{% extends "Users/index.html" %}
+
+{% block content %}
+    {% for Sport in all_search_results %}
+        <a href="/Sport/{{Sport.name}}/">{{Sport.name}}</a>
+        
+    {% empty %}
+        <h2>No results found</h2>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,21 @@
+{%extends 'Users/index.html'%}
+{%block content%}
+
+{% if registered %}
+    <div style="border:2px solid rgb(2, 2, 32);color:aqua">
+    <h1>Thankyou For becoming a Member of MITTAL SPORTS COMPLEX</h1>
+<h2>You can now login</h2></div>
+{% else %}
+<br><br><br>
+<div class="container" style="border:5px solid rgb(5, 5, 78); padding:30px;width:700px " >
+    <h4 style="color:aliceblue">Username:</h4>
+    <form method="post" enctype="multipart/form-data" style="color:white">
+        {%csrf_token%}
+       
+        {{user_form}}
+        
+        <input type="submit" value="Register" class="btn btn-primary btn-block" style="color:aliceblue">
+    </form>
+</div>
+{% endif %}
+{% endblock %}

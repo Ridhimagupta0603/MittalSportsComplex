@@ -1,0 +1,47 @@
+{%extends 'Users/index.html'%}
+{%block content%}
+
+
+<div style="margin:100px">
+    <h1 style="color:white;font-weight:600;font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">{{sport}}</h1>
+    
+           <div style="border:3px solid rgb(3, 3, 55);padding:50px;margin:100px">
+<h2 style="color:aqua">Available Courts</h2><ol style="color:white">  
+     {%for court in sport.court.all%}
+        
+<li><h6>Court Name- {{court.court_name}}<br> </h6>
+   <h6>Capacity {{court.capacity}}<br> </h6>
+</li>
+
+
+        {%endfor%}
+    </ol>
+    <h2 style="color:aqua">Available Slots</h2><ol style="color:white">  
+         {%for slot in sport.slots.all%}
+        
+        <li>
+           
+           <h6>{{slot.fromtime}} To  
+           {{slot.totime}}<br> </h6>
+        </li>
+        
+        
+                {%endfor%}
+            </ol>
+    <br>
+<div style="border:1px solid black;background-color:aqua;width:fit-content;padding:5px;float: right;"><a href="/Slots/{{sport}}">Book Now</a></div>
+        </div>
+            
+       
+
+
+</div>
+
+
+
+
+
+
+
+
+{%endblock%}

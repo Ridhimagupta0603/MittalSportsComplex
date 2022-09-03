@@ -1,0 +1,35 @@
+{%extends 'Users/index.html'%}
+{%block content%}
+{%load static%}
+
+
+
+
+<br><br><br><br><br><br>
+
+<p>admin</p>
+<a href="{% url 'Staffperm'%}">Assign role of Staff </a>
+
+
+
+<div class=" container"><br>
+    <h2 style="text-align:center">Sports</h2><br>
+    <div class="row">
+      {% for x in sport%}
+      <div class="col-md-4">
+        <div class="card card-3 mt-4">
+          <h3><a href="/Sport/{{x.name}}">{{x.name}}</a></h3>
+          <p></p><br>
+          <p></p>
+        </div>
+      </div>
+      
+      {%endfor%}
+    </div>
+    
+  </div>
+  <br><br><br><br><br><br>
+
+{%endblock%}
+
+
